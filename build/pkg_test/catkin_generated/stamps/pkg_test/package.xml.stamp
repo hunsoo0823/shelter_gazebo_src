@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package>
+  <name>pkg_test</name>
+  <version>0.1.0</version>
+  <description>shelter_description package</description>
+  <author email="candy3465@naver.com">ChoKH</author>
+  <maintainer email="candy3465@navre.com">ChoKH</maintainer>
+  
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <run_depend>diff_drive_controller</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>joint_state_controller</run_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>joint_state_publisher_gui</run_depend>
+  <run_depend>position_controllers</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rqt_robot_steering</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>xacro</run_depend>
+</package>

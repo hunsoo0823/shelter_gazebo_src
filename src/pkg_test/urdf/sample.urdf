@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot name="sample">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.5 0.2"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_to_back_cover" type="fixed">
+    <parent link="base_link"/>
+    <child link="back_cover"/>
+    <origin xyz="0.15 0 0.1"/>
+  </joint>
+
+  <link name="back_cover">
+    <visual>
+      <geometry>
+        <box size="0.2 0.4 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_front_cover" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_cover"/>
+    <origin xyz="-0.25 0 0.1"/>
+  </joint>
+
+  <link name="front_cover">
+    <visual>
+      <geometry>
+        <box size="0.05 0.4 0.1"/>
+      </geometry>
+      <origin xyz="0 0 0.05"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_fork_frame" type="prismatic">
+    <parent link="base_link"/>
+    <child link="fork_frame"/>
+    <origin xyz="-0.3 0 -0.08"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="0" upper="0.16" velocity="0.5"/>
+  </joint>
+
+  <link name="fork_frame">
+    <visual>
+      <geometry>
+        <box size="0.05 0.6 0.3"/>
+      </geometry>
+      <origin xyz="-0.025 0 0.1"/>
+    </visual>
+  </link>
+
+  <joint name="fork_frame_to_right_fork" type="fixed">
+    <parent link="fork_frame"/>
+    <child link="right_fork"/>
+    <origin xyz="-0.05 0.125 -0.045"/>
+  </joint>
+
+  <link name="right_fork">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.01"/>
+      </geometry>
+      <origin xyz="-0.15 0 0"/>
+    </visual>
+  </link>
+
+<joint name="fork_frame_to_left_fork" type="fixed">
+    <parent link="fork_frame"/>
+    <child link="left_fork"/>
+    <origin xyz="-0.05 -0.125 -0.045"/>
+  </joint>
+
+  <link name="left_fork">
+    <visual>
+      <geometry>
+        <box size="0.3 0.1 0.01"/>
+      </geometry>
+      <origin xyz="-0.15 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_front_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_front_wheel"/>
+    <origin xyz="-0.18 0.25 -0.04"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="right_front_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+      <origin rpy="1.57075 0 0 " xyz="0 0.025 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_front_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_front_wheel"/>
+    <origin xyz="-0.18 -0.25 -0.04"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="left_front_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.1"/>
+      </geometry>
+      <origin rpy="1.57075 0 0 " xyz="0 -0.025 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_right_back_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_back_wheel"/>
+    <origin xyz="0.18 0.25 -0.07"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="right_back_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.07"/>
+      </geometry>
+      <origin rpy="1.57075 0 0 " xyz="0 0.025 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_back_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_back_wheel"/>
+    <origin xyz="0.18 -0.25 -0.07"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="left_back_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.05" radius="0.07"/>
+      </geometry>
+      <origin rpy="1.57075 0 0 " xyz="0 -0.025 0"/>
+    </visual>
+  </link>
+
+</robot>

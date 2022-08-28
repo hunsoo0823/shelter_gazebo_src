@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<robot name="sample3">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="1.5 1 1"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_to_tail" type="fixed">
+    <parent link="base_link"/>
+    <child link="tail"/>
+    <origin xyz="-0.75 0 0.2"/>
+  </joint>
+
+  <link name="tail">
+    <visual>
+      <geometry>
+        <box size="1.5 0.2 0.2"/>
+      </geometry>
+      <origin xyz="-0.75 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="tail_to_tail_wing" type="continuous">
+    <parent link="tail"/>
+    <child link="tail_wing"/>
+    <origin xyz="-1.4 0.1 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="tail_wing">
+    <visual>
+      <geometry>
+        <box size="0.1 0.1 0.1"/>
+      </geometry>
+      <origin xyz="0 0.05 0"/>
+    </visual>
+  </link>
+
+  <joint name="tail_wing_to_tail_wing1" type="fixed">
+    <parent link="tail_wing"/>
+    <child link="tail_wing1"/>
+    <origin rpy="-0.3 0 0" xyz="0.05 0.05 0"/>
+  </joint>
+
+  <link name="tail_wing1">
+    <visual>
+      <geometry>
+        <box size="0.3 0.01 0.08"/>
+      </geometry>
+      <origin xyz="0.15 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="tail_wing_to_tail_wing2" type="fixed">
+    <parent link="tail_wing"/>
+    <child link="tail_wing2"/>
+    <origin rpy="0 0 -0.3" xyz="0 0.05 0.05"/>
+  </joint>
+
+  <link name="tail_wing2">
+    <visual>
+      <geometry>
+        <box size="0.08 0.01 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15"/>
+    </visual>
+  </link>
+
+  <joint name="tail_wing_to_tail_wing3" type="fixed">
+    <parent link="tail_wing"/>
+    <child link="tail_wing3"/>
+    <origin rpy="0.3 0 0" xyz="-0.05 0.05 0"/>
+  </joint>
+
+  <link name="tail_wing3">
+    <visual>
+      <geometry>
+        <box size="0.3 0.01 0.08"/>
+      </geometry>
+      <origin xyz="-0.15 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="tail_wing_to_tail_wing4" type="fixed">
+    <parent link="tail_wing"/>
+    <child link="tail_wing4"/>
+    <origin rpy="0 0 0.3" xyz="0 0.05 -0.05"/>
+  </joint>
+
+  <link name="tail_wing4">
+    <visual>
+      <geometry>
+        <box size="0.08 0.01 0.3"/>
+      </geometry>
+      <origin xyz="0 0 -0.15"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_wing" type="continuous">
+    <parent link="base_link"/>
+    <child link="wing"/>
+    <origin xyz="0 0 0.5"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="wing">
+    <visual>
+      <geometry>
+        <box size="0.2 0.2 0.2"/>
+      </geometry>
+      <origin xyz="0 0 0.1"/>
+    </visual>
+  </link>
+
+  <joint name="wing_to_wing1" type="fixed">
+    <parent link="wing"/>
+    <child link="wing1"/>
+    <origin rpy="-0.3 0 0" xyz="0.1 0 0.1"/>
+  </joint>
+
+  <link name="wing1">
+    <visual>
+      <geometry>
+        <box size="1.5 0.1 0.01"/>
+      </geometry>
+      <origin xyz="0.75 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="wing_to_wing2" type="fixed">
+    <parent link="wing"/>
+    <child link="wing2"/>
+    <origin rpy="0 -0.3 0" xyz="0 0.1 0.1"/>
+  </joint>
+
+  <link name="wing2">
+    <visual>
+      <geometry>
+        <box size="0.1 1.5 0.01"/>
+      </geometry>
+      <origin xyz="0 0.75 0"/>
+    </visual>
+  </link>
+
+  <joint name="wing_to_wing3" type="fixed">
+    <parent link="wing"/>
+    <child link="wing3"/>
+    <origin rpy="0.3 0 0" xyz="-0.1 0 0.1"/>
+  </joint>
+
+  <link name="wing3">
+    <visual>
+      <geometry>
+        <box size="1.5 0.1 0.01"/>
+      </geometry>
+      <origin xyz="-0.75 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="wing_to_wing4" type="fixed">
+    <parent link="wing"/>
+    <child link="wing4"/>
+    <origin rpy="0 0.3 0" xyz="0 -0.1 0.1"/>
+  </joint>
+
+  <link name="wing4">
+    <visual>
+      <geometry>
+        <box size="0.1 1.5 0.01"/>
+      </geometry>
+      <origin xyz="0 -0.75 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_lleg" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_leg"/>
+    <origin xyz="0 0.3 -0.5"/>
+  </joint>
+
+  <link name="left_leg">
+    <visual>
+      <geometry>
+        <box size="0.2 0.08 0.2"/>
+      </geometry>
+      <origin xyz="0 0 -0.1"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_rleg" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_leg"/>
+    <origin xyz="0 -0.3 -0.5"/>
+  </joint>
+
+  <link name="right_leg">
+    <visual>
+      <geometry>
+        <box size="0.2 0.08 0.2"/>
+      </geometry>
+      <origin xyz="0 0 -0.1"/>
+    </visual>
+  </link>
+
+  <joint name="lleg_to_ltiptoe" type="fixed">
+    <parent link="left_leg"/>
+    <child link="left_tiptoe"/>
+    <origin xyz="0 0 -0.2"/>
+  </joint>
+
+  <link name="left_tiptoe">
+    <visual>
+      <geometry>
+        <box size="1.2 0.2 0.05"/>
+      </geometry>
+      <origin xyz="0 0 -0.025"/>
+    </visual>
+  </link>
+
+  <joint name="rleg_to_rtiptoe" type="fixed">
+    <parent link="right_leg"/>
+    <child link="right_tiptoe"/>
+    <origin xyz="0 0 -0.2"/>
+  </joint>
+
+  <link name="right_tiptoe">
+    <visual>
+      <geometry>
+        <box size="1.2 0.2 0.05"/>
+      </geometry>
+      <origin xyz="0 0 -0.025"/>
+    </visual>
+  </link>
+
+</robot>

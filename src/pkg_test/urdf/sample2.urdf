@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<robot name="sample2">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="1.5 1 0.5"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="base_to_bottom" type="fixed">
+    <parent link="base_link"/>
+    <child link="bottom"/>
+    <origin xyz="0 0 -0.25"/>
+  </joint>
+
+  <link name="bottom">
+    <visual>
+      <geometry>
+        <box size="1.5 0.7 0.2"/>
+      </geometry>
+      <origin xyz="0 0 -0.1"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_mlwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="mid_lift_wheel"/>
+    <origin xyz="0 0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="mid_lift_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_mrwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="mid_right_wheel"/>
+    <origin xyz="0 -0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="mid_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 -0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_flwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="front_lift_wheel"/>
+    <origin xyz="0.5 0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="front_lift_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_frwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.5 -0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="front_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 -0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_blwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="back_lift_wheel"/>
+    <origin xyz="-0.5 0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="back_lift_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="bottom_to_brwheel" type="continuous">
+    <parent link="bottom"/>
+    <child link="back_right_wheel"/>
+    <origin xyz="-0.5 -0.35 -0.18"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="back_right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.15" radius="0.17"/>
+      </geometry>
+      <origin rpy="1.57075 0 0" xyz="0 -0.075 0"/>
+    </visual>
+  </link>
+
+  <joint name="base_to_cannon" type="continuous">
+    <parent link="base_link"/>
+    <child link="cannon"/>
+    <origin xyz="-0.2 0 0.25"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="cannon">
+    <visual>
+      <geometry>
+        <box size="0.9 0.8 0.3"/>
+      </geometry>
+      <origin xyz="0 0 0.15"/>
+    </visual>
+  </link>
+
+  <joint name="cannon_to_barrel" type="revolute">
+    <parent link="cannon"/>
+    <child link="barrel"/>
+    <origin xyz="0.45 0 0.15"/>
+    <axis xyz="0 -1 0"/>
+    <limit effort="1000.0" lower="-0.1" upper="0.5" velocity="0.5"/>
+  </joint>
+
+  <link name="barrel">
+    <visual>
+      <geometry>
+        <cylinder length="0.7" radius="0.05"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0.35 0 0"/>
+    </visual>
+  </link>
+
+  <joint name="barrel_to_muzzle" type="fixed">
+    <parent link="barrel"/>
+    <child link="muzzle"/>
+    <origin xyz="0.7 0 0"/>
+  </joint>
+
+  <link name="muzzle">
+    <visual>
+      <geometry>
+        <cylinder length="0.2" radius="0.07"/>
+      </geometry>
+      <origin rpy="0 1.57075 0" xyz="0.1 0 0"/>
+    </visual>
+  </link>
+
+</robot>

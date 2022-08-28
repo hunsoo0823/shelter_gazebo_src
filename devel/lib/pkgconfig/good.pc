@@ -1,0 +1,8 @@
+prefix=/home/lidarkorea/sample_ws/devel
+
+Name: good
+Description: Description of good
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
